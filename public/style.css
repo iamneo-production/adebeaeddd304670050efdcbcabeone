@@ -1,55 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;500;600;700&display=swap");
+
 body {
-        text-align: center;
-            font-family: Arial, sans-serif;
+  background-image: url("https://cdn.pixabay.com/photo/2018/03/17/19/36/connection-3234929_1280.jpg");
+    background-size: cover;
+      background-repeat: no-repeat;
+        background-position: center center;
+          font-family: "Radio Canada", sans-serif;
+          }
+
+          body {
+            text-align: center;
+              font-family: Arial, sans-serif;
                 background-color: #f0f0f0;
                 }
 
                 h1 {
-                    color: #333;
-                    }
+                  color: #333;
+                  }
 
-                    .game-board {
-                        display: grid;
-                            grid-template-columns: repeat(3, 100px);
-                                gap: 5px;
-                                    margin: 20px auto;
-                                    }
+                  .game-board {
+                    display: grid;
+                      grid-template-columns: repeat(3, 100px);
+                        gap: 5px;
+                          margin: 20px auto;
+                          }
 
-                                    .cell {
-                                        width: 100px;
-                                            height: 100px;
-                                                background-color: #fff;
-                                                    display: flex;
-                                                        justify-content: center;
-                                                            align-items: center;
-                                                                font-size: 36px;
-                                                                    font-weight: bold;
-                                                                        cursor: pointer;
-                                                                            border: 2px solid #333;
-                                                                            }
+                          .cell {
+                            width: 100px;
+                              height: 100px;
+                                background-color: #fff;
+                                  display: flex;
+                                    justify-content: center;
+                                      align-items: center;
+                                        font-size: 36px;
+                                          font-weight: bold;
+                                            cursor: pointer;
+                                              border: 2px solid #333;
+                                              }
 
-                                                                            .cell:hover {
-                                                                                background-color: #f0f0f0;
-                                                                                }
+                                              .cell:hover {
+                                                background-color: #f0f0f0;
+                                                }
 
-                                                                                .result {
-                                                                                    font-size: 24px;
-                                                                                        margin-top: 20px;
-                                                                                            color: #333;
-                                                                                            }
+                                                .result {
+                                                  font-size: 24px;
+                                                    margin-top: 20px;
+                                                      color: #333;
+                                                      }
 
-                                                                                            .reset-button {
-                                                                                                margin-top: 20px;
-                                                                                                    padding: 10px 20px;
-                                                                                                        font-size: 20px;
-                                                                                                            background-color: #333;
-                                                                                                                color: #fff;
-                                                                                                                    border: none;
-                                                                                                                        cursor: pointer;
-                                                                                                                            transition: background-color 0.3s;
-                                                                                                                            }
+                                                      .reset-button {
+                                                        margin-top: 20px;
+                                                          padding: 10px 20px;
+                                                            font-size: 20px;
+                                                              background-color: #333;
+                                                                color: #fff;
+                                                                  border: none;
+                                                                    cursor: pointer;
+                                                                      transition: background-color 0.3s;
+                                                                      }
 
-                                                                                                                            .reset-button:hover {
-                                                                                                                                background-color: #555;
-                                                                                                                                }
-
+                                                                      .reset-button:hover {
+                                                                        background-color: #555;
+                                                                        }
