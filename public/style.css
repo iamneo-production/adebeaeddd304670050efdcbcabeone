@@ -1,92 +1,77 @@
-@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;500;600;700&display=swap");
-
 body {
-  background-image: url("https://cdn.pixabay.com/photo/2018/03/17/19/36/connection-3234929_1280.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  font-family: "Radio Canada", sans-serif;
-}
+        text-align: center;
+        }
 
-/* Enter your styling here */
-body {
-  background-color: #f2f2f2;
-}
+        h1 {
+            color: white;
+                text-align: center;
+                    text-shadow: 2px 2px 4px #888;
+                        font-size: 50px;
+                        }
 
-h1 {
-  text-align: center;
-  color: #ffffff;
-  font-size: 50px;
-  text-shadow: 1px 1px 2px #888888;
-}
+                        .box-container {
+                            display: flex;
+                                flex-direction: column;
+                                    align-items: center;
+                                        margin: 35px;
+                                        }
 
-.grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 3px;
-}
+                                        .row {
+                                            display: flex;
+                                                justify-content: center;
+                                                    align-items: center;
+                                                    }
 
-.box {
-  width: 100px;
-  height: 100px;
-  margin: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
-}
+                                                    .btn {
+                                                        width: 75px;
+                                                            height: 75px;
+                                                                border: 2px solid #000;
+                                                                    border-radius: 10px;
+                                                                        font-size: 50px;
+                                                                            font-weight: 500;
+                                                                                background-color: rgba(255, 255, 255, 0.8);
+                                                                                    cursor: pointer;
+                                                                                        margin: 5px;
+                                                                                        }
 
-.btn {
-  border: none;
-  border-radius: 5px;
-  width: 75px;
-  height: 75px;
-  text-align: center;
-  font-size: 50px;
-  font-weight: 500;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #333333;
-  text-shadow: 1px 1px 2px #cccccc;
-  cursor: pointer;
-}
+                                                                                        .btn:hover {
+                                                                                            background-color: rgba(255, 255, 255, 0.6);
+                                                                                            }
 
-.btn:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-  cursor: pointer;
-}
+                                                                                            .btn:disabled {
+                                                                                                color: black;
+                                                                                                    cursor: not-allowed;
+                                                                                                    }
 
-.btn:disabled {
-  color: #000000;
-  cursor: no-drop;
-}
+                                                                                                    .result-container {
+                                                                                                        background-color: rgba(255, 255, 255, 0.8);
+                                                                                                            border: 2px solid #000;
+                                                                                                                max-width: 200px;
+                                                                                                                    margin: 20px auto;
+                                                                                                                    }
 
-.result-container {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid #333333;
-  max-width: 200px;
-  margin: 10px auto;
-  text-align: center;
-}
+                                                                                                                    #result {
+                                                                                                                        color: white;
+                                                                                                                            text-align: center;
+                                                                                                                                text-shadow: 1px 1px 2px #888;
+                                                                                                                                    font-size: 25px;
+                                                                                                                                    }
 
-.result-text {
-  color: #ffffff;
-  text-shadow: 1px 1px 2px #888888;
-  font-size: 25px;
-}
+                                                                                                                                    .reset {
+                                                                                                                                        text-align: center;
+                                                                                                                                        }
 
-.reset-section {
-  text-align: center;
-}
+                                                                                                                                        #resetBtn {
+                                                                                                                                            border: 2px solid #000;
+                                                                                                                                                color: black;
+                                                                                                                                                    cursor: pointer;
+                                                                                                                                                        padding: 5px 10px;
+                                                                                                                                                            background-color: white;
+                                                                                                                                                                transition: background-color 0.3s, color 0.3s;
+                                                                                                                                                                }
 
-#reset-button {
-  border: 1px solid #000000;
-  color: #000000;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+                                                                                                                                                                #resetBtn:hover {
+                                                                                                                                                                    background-color: black;
+                                                                                                                                                                        color: white;
+                                                                                                                                                                        }
 
-#reset-button:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
