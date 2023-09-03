@@ -1,72 +1,65 @@
-// Variables to keep track of the current player (X or O) and whether the game is over.
+const cells = document.querySelectorAll('.cell');
+const result = document.getElementById('result');
+const resetButton = document.getElementById('reset-button');
+
 let currentPlayer = 'X';
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let gameWon = false;
 
-// Function to handle a player's move.
-function makeMove(button) {
-    const index = parseInt(button.id);
+function checkWin() {
+    const winConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                            [0, 4, 8], [2, 4, 6]              // Diagonals
+                                ];
 
-        // Check if the cell is empty and the game is not over.
-            if (!gameBoard[index] && !gameWon) {
-                    gameBoard[index] = currentPlayer;
-                            button.innerText = currentPlayer;
+                                    for (const condition of winConditions) {
+                                            const [a, b, c] = condition;
+                                                    if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                                                                return true;
+                                                                        }
+                                                                            }
 
-                                    // Check for a win after every move.
-                                            if (checkWin()) {
-                                                        document.getElementById('result').innerText = `Player ${currentPlayer} wins!`;
-                                                                    gameWon = true;
-                                                                            } else if (!gameBoard.includes('')) {
-                                                                                        document.getElementById('result').innerText = "It's a draw!";
-                                                                                                    gameWon = true;
-                                                                                                            } else {
-                                                                                                                        currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
-                                                                                                                                    document.getElementById('result').innerText = `Player ${currentPlayer}'s Turn`;
-                                                                                                                                            }
-                                                                                                                                                }
-                                                                                                                                                }
+                                                                                return false;
+                                                                                }
 
-                                                                                                                                                // Function to check for a win.
-                                                                                                                                                function checkWin() {
-                                                                                                                                                    const winConditions = [
-                                                                                                                                                            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-                                                                                                                                                                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-                                                                                                                                                                            [0, 4, 8], [2, 4, 6]              // Diagonals
-                                                                                                                                                                                ];
+                                                                                function checkDraw() {
+                                                                                    return !gameBoard.includes('');
+                                                                                    }
 
-                                                                                                                                                                                    for (const condition of winConditions) {
-                                                                                                                                                                                            const [a, b, c] = condition;
-                                                                                                                                                                                                    if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-                                                                                                                                                                                                                return true;
-                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                            }
+                                                                                    function handleCellClick(cell, index) {
+                                                                                        if (!cell.textContent && !gameWon) {
+                                                                                                cell.textContent = currentPlayer;
+                                                                                                        gameBoard[index] = currentPlayer;
 
-                                                                                                                                                                                                                                return false;
-                                                                                                                                                                                                                                }
+                                                                                                                if (checkWin()) {
+                                                                                                                            result.textContent = `Player ${currentPlayer} wins!`;
+                                                                                                                                        gameWon = true;
+                                                                                                                                                } else if (checkDraw()) {
+                                                                                                                                                            result.textContent = "It's a draw!";
+                                                                                                                                                                        gameWon = true;
+                                                                                                                                                                                } else {
+                                                                                                                                                                                            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                                                                                                                                                                                                        result.textContent = `Player ${currentPlayer}'s Turn`;
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                    }
 
-                                                                                                                                                                                                                                // Function to reset the game.
-                                                                                                                                                                                                                                function resetGame() {
-                                                                                                                                                                                                                                    gameBoard = ['', '', '', '', '', '', '', '', ''];
-                                                                                                                                                                                                                                        gameWon = false;
-                                                                                                                                                                                                                                            currentPlayer = 'X';
-                                                                                                                                                                                                                                                document.querySelectorAll('.btn').forEach(button => {
-                                                                                                                                                                                                                                                        button.innerText = '';
-                                                                                                                                                                                                                                                                button.disabled = false;
+                                                                                                                                                                                                                    function handleReset() {
+                                                                                                                                                                                                                        gameBoard = ['', '', '', '', '', '', '', '', ''];
+                                                                                                                                                                                                                            gameWon = false;
+                                                                                                                                                                                                                                currentPlayer = 'X';
+                                                                                                                                                                                                                                    cells.forEach(cell => {
+                                                                                                                                                                                                                                            cell.textContent = '';
+                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                    result.textContent = `Player ${currentPlayer}'s Turn`;
+                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                    cells.forEach((cell, index) => {
+                                                                                                                                                                                                                                                        cell.addEventListener('click', () => {
+                                                                                                                                                                                                                                                                handleCellClick(cell, index);
                                                                                                                                                                                                                                                                     });
-                                                                                                                                                                                                                                                                        document.getElementById('result').innerText = `Player ${currentPlayer}'s Turn`;
-                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                    });
 
-                                                                                                                                                                                                                                                                        // Add event listener to the Reset button.
-                                                                                                                                                                                                                                                                        document.getElementById('reset-button').addEventListener('click', resetGame);
-
-                                                                                                                                                                                                                                                                        // Add event listeners to buttons.
-                                                                                                                                                                                                                                                                        document.querySelectorAll('.btn').forEach(button => {
-                                                                                                                                                                                                                                                                            button.addEventListener('click', function () {
-                                                                                                                                                                                                                                                                                    makeMove(this);
-                                                                                                                                                                                                                                                                                            this.disabled = true;
-                                                                                                                                                                                                                                                                                                });
-                                                                                                                                                                                                                                                                                                });
-
-                                                                                                                                                                                                                                                                                                // Initialize the game.
-                                                                                                                                                                                                                                                                                                document.getElementById('result').innerText = `Player ${currentPlayer}'s Turn`;
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                    resetButton.addEventListener('click', handleReset);
+                                                                                                                                                                                                                                                                    
